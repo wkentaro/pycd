@@ -1,8 +1,8 @@
 ====
 pycd
 ====
-Simple command line tool to change directory for Python packages.
-You can now easily read the codes of the modules.
+| Simple command line tool to change directory for Python packages.
+| You can now easily read the codes of the modules.
 
 Installation
 ============
@@ -22,4 +22,4 @@ Usage
   $ pycd numpy
   $ pwd
   /usr/lib/python2.7/dist-packages/numpy
-
+  # read the code!
