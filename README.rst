@@ -6,6 +6,7 @@ Simple command line tool to change directory for Python packages.
 Installation
 ============
 pycd officially supports bash and zsh.
+
 .. code-block:: sh
 
   git clone https://github.com/wkentaro/pycd.git ~/.pycd
