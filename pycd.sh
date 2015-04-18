@@ -4,6 +4,7 @@
 function _get_dist_path()
 {
 python -c """
+import os
 import sys
 import argparse
 import imp
@@ -14,9 +15,11 @@ def get_distribution_paths():
     for pkg in pkgutil.iter_modules():
         pkg_name = pkg[1]
         file_, pkg_path = imp.find_module(pkg_name)[:2]
-        if file_ is not None:
-            continue
-        pkg_paths[pkg_name] = pkg_path
+        pkg_dirname = os.path.split(pkg_path)[0]
+        if file_ is None:
+            pkg_paths[pkg_name] = pkg_path
+        else:
+            pkg_paths[pkg_name] = pkg_dirname
     return pkg_paths
 
 def main():
