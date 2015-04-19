@@ -11,7 +11,7 @@ function pycd ()
     if [ "$1" = "" ]; then
       echo "Usage: pycd <module_name>"
     else
-      echo "not found"
+      echo "$1 not found"
     fi
   fi
 }
