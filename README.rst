@@ -11,12 +11,13 @@ pycd officially supports bash and zsh.
 .. code-block:: sh
 
   $ pip install pycd
+
   $ pycd_py install
   Please add below to your shell config file
   >   source /usr/local/lib/python2.7/dist-packages/pycd/pycd.sh
   add to /home/wkentaro/.zshrc? [y/N]: y
-  $ cat ~/.zshrc
 
+  $ cat ~/.zshrc
   # this line is added by pycd
   source /usr/local/lib/python2.7/dist-packages/pycd/pycd.sh
 
