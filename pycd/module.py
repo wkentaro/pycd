@@ -13,7 +13,7 @@ def get_module_paths():
         file_, module_path = imp.find_module(module_name)[:2]
         module_dirname = os.path.split(module_path)[0]
         if file_ is None:
-            module_paths[module_name] = module_path
+            module_paths[module_name] = os.path.abspath(module_path)
         else:
-            module_paths[module_name] = module_dirname
+            module_paths[module_name] = os.path.abspath(module_dirname)
     return module_paths

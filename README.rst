@@ -28,5 +28,14 @@ Usage
   Usage: pycd <module_name>
   $ pycd numpy
   $ pwd
-  /usr/lib/python2.7/dist-packages/numpy
+  /usr/local/lib/python2.7/dist-packages/numpy
   # read the code!
+
+  # lower level utility
+  $ pycd_py find numpy
+  /usr/local/lib/python2.7/dist-packages/numpy
+  $ pycd_py list
+  numpy
+  sklearn
+  scipy
+  ...
