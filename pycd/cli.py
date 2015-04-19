@@ -7,9 +7,7 @@ from clint.textui import colored, puts, indent
 from clint.eng import join as eng_join
 from clint import Args
 
-this_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(this_dir, '..'))
-import pycd
+from .module import get_module_paths
 
 
 def display_info():
@@ -17,7 +15,7 @@ def display_info():
         colored.red('pycd'),
         'A Kentaro Wada Project'
     ))
-    puts('Usage: {0}'.format(colored.blue('pycd.py <command>')))
+    puts('Usage: {0}'.format(colored.blue('pycd_py <command>')))
     puts('Commands: {0}.\n'.format(
         eng_join(
             [str(colored.green(c)) for c in sorted(cmd_map.keys())]
@@ -69,7 +67,7 @@ def cmd_find(args):
             print("Please specify a module to find.")
         sys.exit()
 
-    module_paths = pycd.get_module_paths()
+    module_paths = get_module_paths()
     if module not in module_paths:
         if not no_warning:
             print("{0} doesn't exist. Use `pycd list`.".format(
@@ -81,7 +79,7 @@ def cmd_find(args):
 
 
 def cmd_list(args):
-    module_paths = pycd.get_module_paths()
+    module_paths = get_module_paths()
     for module in module_paths:
         print(module)
 
