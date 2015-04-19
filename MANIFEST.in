@@ -1,1 +1,1 @@
-include pycd.sh README.rst
+include pycd/pycd.sh README.rst
