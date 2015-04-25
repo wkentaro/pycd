@@ -8,6 +8,7 @@ from clint.eng import join as eng_join
 from clint import Args
 
 from .module import get_module_paths
+this_dir = os.path.dirname(__file__)
 
 
 def display_info():
