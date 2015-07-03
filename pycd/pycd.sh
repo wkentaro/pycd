@@ -4,7 +4,7 @@
 function pycd ()
 {
   local module_path
-  module_path=`pycd_py find $1 --no-warning`
+  module_path=`pypkg find $1 --no-warning`
   if [ "$module_path" != "" ]; then
     cd $module_path
   else
@@ -25,6 +25,7 @@ function pycd ()
 if [[ -n ${ZSH_VERSION-} ]]; then
     autoload -U +X bashcompinit && bashcompinit
 fi
+
 _pycd()
 {
     local cur prev opts
@@ -34,7 +35,7 @@ _pycd()
     opts=""
 
     if [[ ${opts} = "" ]] ; then
-        opts=$(pycd_py list)
+        opts=$(pypkg list)
     fi
 
     if [[ ${cur} = * ]] ; then
@@ -43,3 +44,13 @@ _pycd()
     fi
 }
 complete -F _pycd pycd
+
+# Setup antigen's autocompletion
+_pypkg () {
+    compadd        \
+        find \
+        help \
+        install_pycd \
+        list
+}
+complete -F _pypkg pypkg

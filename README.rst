@@ -12,7 +12,7 @@ pycd officially supports bash and zsh.
 
   $ pip install pycd
 
-  $ pycd_py install
+  $ pypkg install_pycd
   Please add below to your shell config file
   >   source /usr/local/lib/python2.7/dist-packages/pycd/pycd.sh
   add to /home/wkentaro/.zshrc? [y/N]: y
@@ -32,10 +32,10 @@ Usage
   /usr/local/lib/python2.7/dist-packages/numpy
   # read the code!
 
-  # lower level utility
-  $ pycd_py find numpy
+  # handling python package utils
+  $ pypkg find numpy
   /usr/local/lib/python2.7/dist-packages/numpy
-  $ pycd_py list
+  $ pypkg list
   numpy
   sklearn
   scipy

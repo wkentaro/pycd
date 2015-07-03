@@ -22,7 +22,7 @@ if sys.argv[-1] == 'publish':
 
 long_desc = """Simple command line tool to change directory
 for python modules. You can now easily read the codes of the modules."""
-version='0.1.22'
+version='0.2.0'
 
 
 setup(
@@ -47,7 +47,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'pycd_py = pycd.cli:main',
+            'pypkg = pycd.cli:main',
         ],
     }
 )
