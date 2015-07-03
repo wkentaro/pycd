@@ -40,10 +40,14 @@ def main():
 
 
 def cmd_install_pycd(args):
-    path = os.path.join(this_dir, 'pycd.sh')
+    # path = os.path.join(this_dir, 'pycd.sh')
     puts('Please add below to your shell config file')
+    shell_cmd = '''if which pypkg >/dev/null 2>&1; then
+    source `pypkg find pycd`/pycd.sh
+fi'''
     with indent(4, quote='>'):
-        puts('source {0}'.format(path))
+        puts(shell_cmd)
+        # puts('source {0}'.format(path))
     shell_config = '{home}/.{shell}rc'.format(
         home=os.environ.get('HOME'),
         shell=os.path.split(os.environ.get('SHELL'))[-1],
@@ -52,7 +56,7 @@ def cmd_install_pycd(args):
     if yn.lower() == 'y':
         with open(shell_config, 'a+') as f:
             f.write('\n# this line is added by pycd\n')
-            f.write('source {0}'.format(path))
+            f.write(shell_cmd)
     sys.exit()
 
 
