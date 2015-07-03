@@ -16,7 +16,7 @@ def display_info():
         colored.red('pycd'),
         'A Kentaro Wada Project'
     ))
-    puts('Usage: {0}'.format(colored.blue('pycd_py <command>')))
+    puts('Usage: {0}'.format(colored.blue('pypkg <command>')))
     puts('Commands: {0}.\n'.format(
         eng_join(
             [str(colored.green(c)) for c in sorted(cmd_map.keys())]
@@ -39,7 +39,7 @@ def main():
         display_info()
 
 
-def cmd_install(args):
+def cmd_install_pycd(args):
     path = os.path.join(this_dir, 'pycd.sh')
     puts('Please add below to your shell config file')
     with indent(4, quote='>'):
@@ -86,7 +86,7 @@ def cmd_list(args):
 
 
 cmd_map = dict(
-    install=cmd_install,
+    install_pycd=cmd_install_pycd,
     find=cmd_find,
     list=cmd_list,
 )
