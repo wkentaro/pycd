@@ -4,6 +4,7 @@ pycd
 | Simple command line tool to change directory for Python packages.
 | You can now easily read the codes of the modules.
 
+
 Installation
 ============
 pycd officially supports bash and zsh.
@@ -12,14 +13,31 @@ pycd officially supports bash and zsh.
 
   $ pip install pycd
 
+
+For Antigen users
+-----------------
+Add following line to user ``.zshrc``::
+
+   antigen bundle wkentaro/pycd pycd
+
+
+For others
+----------
+
+.. code-block:: sh
+
   $ pypkg install_pycd
   Please add below to your shell config file
   >   source /usr/local/lib/python2.7/dist-packages/pycd/pycd.sh
-  add to /home/wkentaro/.zshrc? [y/N]: y
+  add to /home/wkentaro/.bashrc? [y/N]: y
 
-  $ cat ~/.zshrc
+  $ cat ~/.bashrc
   # this line is added by pycd
   source /usr/local/lib/python2.7/dist-packages/pycd/pycd.sh
+
+  # for completion, add following line to your .bashrc or .zshrc
+  source `pypkg find pycd`/pycd/pycd-completion.bash
+
 
 Usage
 =====
@@ -40,6 +58,7 @@ Usage
   sklearn
   scipy
   ...
+
 
 License
 =======
