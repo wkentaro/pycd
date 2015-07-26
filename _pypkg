@@ -4,7 +4,6 @@ _pypkg () {
   _values 'command' \
               'find[find package path]' \
               'list[get package list]' \
-              'install_pycd[install pycd]' \
               'help[show usage]'
 }
 compdef _pypkg pypkg
