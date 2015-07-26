@@ -1,0 +1,6 @@
+#compdef pycd
+
+_pycd () {
+  _values 'pkg' $(pypkg list)
+}
+compdef _pycd pycd
