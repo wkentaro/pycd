@@ -12,16 +12,14 @@ this_dir = os.path.dirname(__file__)
 
 
 def display_info():
-    puts('{0}. {1}\n'.format(
-        colored.red('pycd'),
-        'A Kentaro Wada Project'
-    ))
-    puts('Usage: {0}'.format(colored.blue('pypkg <command>')))
-    puts('Commands: {0}.\n'.format(
-        eng_join(
-            [str(colored.green(c)) for c in sorted(cmd_map.keys())]
-        )
-    ))
+    puts('pypkg: command line tool to handle python packages.\n')
+    puts('Usage:')
+    with indent():
+        puts('pypkg <command>')
+    puts('Commands:')
+    with indent():
+        for cmd in cmd_map:
+            puts('{0} - {1}'.format(cmd, cmd_info[cmd]))
 
 
 def main():
@@ -39,25 +37,26 @@ def main():
         display_info()
 
 
-def cmd_install_pycd(args):
-    # path = os.path.join(this_dir, 'pycd.sh')
-    puts('Please add below to your shell config file')
-    shell_cmd = '''if which pypkg >/dev/null 2>&1; then
-    source `pypkg find pycd`/pycd.sh
-fi'''
-    with indent(4, quote='>'):
-        puts(shell_cmd)
-        # puts('source {0}'.format(path))
-    shell_config = '{home}/.{shell}rc'.format(
-        home=os.environ.get('HOME'),
-        shell=os.path.split(os.environ.get('SHELL'))[-1],
-    )
-    yn = raw_input('add to {0}? [y/N]: '.format(colored.green(shell_config)))
-    if yn.lower() == 'y':
-        with open(shell_config, 'a+') as f:
-            f.write('\n# this line is added by pycd\n')
-            f.write(shell_cmd)
-    sys.exit()
+# maybe not needed
+# def cmd_install_pycd(args):
+#     # path = os.path.join(this_dir, 'pycd.sh')
+#     puts('Please add below to your shell config file')
+#     shell_cmd = '''if which pypkg >/dev/null 2>&1; then
+#     source `pypkg find pycd`/pycd.sh
+# fi'''
+#     with indent(4, quote='>'):
+#         puts(shell_cmd)
+#         # puts('source {0}'.format(path))
+#     shell_config = '{home}/.{shell}rc'.format(
+#         home=os.environ.get('HOME'),
+#         shell=os.path.split(os.environ.get('SHELL'))[-1],
+#     )
+#     yn = raw_input('add to {0}? [y/N]: '.format(colored.green(shell_config)))
+#     if yn.lower() == 'y':
+#         with open(shell_config, 'a+') as f:
+#             f.write('\n# this line is added by pycd\n')
+#             f.write(shell_cmd)
+#     sys.exit()
 
 
 def cmd_find(args):
@@ -75,7 +74,7 @@ def cmd_find(args):
     module_paths = get_module_paths()
     if module not in module_paths:
         if not no_warning:
-            print("{0} doesn't exist. Use `pycd list`.".format(
+            print("{0} doesn't exist. Use `pypkg list`.".format(
                 colored.yellow(module)
             ))
         sys.exit(1)
@@ -90,10 +89,14 @@ def cmd_list(args):
 
 
 cmd_map = dict(
-    install_pycd=cmd_install_pycd,
     find=cmd_find,
     list=cmd_list,
-)
+    )
+
+cmd_info = dict(
+    find='find package path',
+    list='get package list',
+    )
 
 
 if __name__ == '__main__':
