@@ -22,7 +22,7 @@ if sys.argv[-1] == 'publish':
 
 long_desc = """Simple command line tool to change directory
 for python modules. You can now easily read the codes of the modules."""
-version='0.2.4'
+version='0.2.5'
 
 
 setup(
