@@ -4,4 +4,4 @@
 from .cli import *
 from .module import *
 
-__version__ = '0.2.6'
+__version__ = '0.2.7'
