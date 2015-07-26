@@ -35,7 +35,6 @@ setup(
     url="http://github.com/wkentaro/pycd",
     install_requires=install_requires,
     packages=find_packages(),
-    package_data={'pycd': ['pycd.sh']},
     license="MIT",
     keywords="utility",
     classifiers=[

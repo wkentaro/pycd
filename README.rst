@@ -11,53 +11,47 @@ pycd officially supports bash and zsh.
 
 .. code-block:: sh
 
-  $ pip install pycd
+   $ pip install pycd
 
 
 For Antigen users
 -----------------
 Add following line to user ``.zshrc``::
 
-   antigen bundle wkentaro/pycd pycd
+    antigen bundle wkentaro/pycd
 
 
 For others
 ----------
+download pycd from github::
 
-.. code-block:: sh
+    $ git clone https://github.com/wkentaro/pycd.git ~/.pycd
 
-  $ pypkg install_pycd
-  Please add below to your shell config file
-  >   source /usr/local/lib/python2.7/dist-packages/pycd/pycd.sh
-  add to /home/wkentaro/.bashrc? [y/N]: y
+add following to your `.bashrc` or `.zshrc`::
 
-  $ cat ~/.bashrc
-  # this line is added by pycd
-  source /usr/local/lib/python2.7/dist-packages/pycd/pycd.sh
-
-  # for completion, add following line to your .bashrc or .zshrc
-  source `pypkg find pycd`/pycd/pycd-completion.bash
+    source ~/.pycd/pycd.sh
+    source ~/.pycd/pycd-completion.bash  # also supports zsh
 
 
 Usage
 =====
 .. code-block:: sh
 
-  $ pycd
-  Usage: pycd <module_name>
-  $ pycd numpy
-  $ pwd
-  /usr/local/lib/python2.7/dist-packages/numpy
-  # read the code!
+   $ pycd
+   Usage: pycd <module_name>
+   $ pycd numpy
+   $ pwd
+   /usr/local/lib/python2.7/dist-packages/numpy
+   # read the code!
 
-  # handling python package utils
-  $ pypkg find numpy
-  /usr/local/lib/python2.7/dist-packages/numpy
-  $ pypkg list
-  numpy
-  sklearn
-  scipy
-  ...
+   # handling python package utils
+   $ pypkg find numpy
+   /usr/local/lib/python2.7/dist-packages/numpy
+   $ pypkg list
+   numpy
+   sklearn
+   scipy
+   ...
 
 
 License
