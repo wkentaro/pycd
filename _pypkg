@@ -1,9 +1,13 @@
 #compdef pypkg
 
 _pypkg () {
-  _values 'command' \
-              'find[find package path]' \
-              'list[get package list]' \
-              'help[show usage]'
+  local -a reply = ()
+  if [[ ${CURRENT} == 2 ]]; then
+    reply=(
+      'find:find package path' \
+      'list:get package list' \
+      'help:show usage'
+      )
+  fi
+  _describe -t pypkg_completion 'pypkg_completion' reply
 }
-compdef _pypkg pypkg
