@@ -3,5 +3,4 @@
 #
 from .cli import *
 from .module import *
-
-__version__ = '0.2.7'
+from .__version__ import version as __version__
