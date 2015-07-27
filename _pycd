@@ -1,6 +1,11 @@
 #compdef pycd
 
 _pycd () {
-  _values 'pkg' $(pypkg list)
+  local opts
+  local -a reply
+  if [[ ${CURRENT} == 2 ]]; then
+    opts=$(pypkg list)
+    reply=(${=opts})
+  fi
+  _describe -t pycd_completion 'pycd_completion' reply
 }
-compdef _pycd pycd
