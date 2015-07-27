@@ -1,8 +1,8 @@
 #compdef pypkg
 
 _pypkg () {
-  local -a reply = ()
-  if [[ ${CURRENT} == 2 ]]; then
+  local -a reply
+  if [[ ${CURRENT} = 2 ]]; then
     reply=(
       'find:find package path' \
       'list:get package list' \
