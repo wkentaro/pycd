@@ -30,7 +30,7 @@ download pycd from github::
 add following to your `.bashrc` or `.zshrc`::
 
     source ~/.pycd/pycd.sh
-    source ~/.pycd/pycd-completion.sh
+    source ~/.pycd/pycd-completion.bash
 
 
 Usage
