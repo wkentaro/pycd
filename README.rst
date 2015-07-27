@@ -7,23 +7,28 @@ pycd
 
 Installation
 ============
-pycd officially supports bash and zsh.
 
-.. code-block:: sh
+for homebrew users
+------------------
+homebrew tap is available `wkentaro/homebrew-pycd <https://github.com/wkentaro/homebrew-pycd>`_.
+
+for antigen users
+-----------------
+install pycd by pip::
 
    $ pip install pycd
 
-
-For Antigen users
------------------
-Add following line to user ``.zshrc``::
+add following line to user ``.zshrc``::
 
     antigen bundle wkentaro/pycd
 
-
-For others
+for others
 ----------
-download pycd from github::
+install pycd by pip::
+
+   $ pip install pycd
+
+and download pycd from github::
 
     $ git clone https://github.com/wkentaro/pycd.git ~/.pycd
 
