@@ -35,7 +35,7 @@ def get_data_files():
     # _wstool:
     #   - /usr/local/share/zsh/site-functions (Linux and Darwin)
     data_files = [(bash_comp_loc, ['completion/pycd-completion.bash']),
-                  (zsh_comp_loc, ['completion/_pycd'])]
+                  (zsh_comp_loc, ['completion/_pycd', 'completion/_pypkg',])]
     return data_files
 
 
