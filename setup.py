@@ -41,46 +41,39 @@ def get_data_files():
     return data_files
 
 
-def main():
-    version = get_version()
+# publish helper
+if sys.argv[-1] == 'publish':
+    for cmd in [
+            'python setup.py sdist upload',
+            'git tag {}'.format(get_version())
+            'git push origin master --tag']:
+        subprocess.check_call(cmd, shell=True)
+    sys.exit(0)
 
-    # publish helper
-    if sys.argv[-1] == 'publish':
-        for cmd in [
-                'python setup.py sdist upload',
-                'git tag {}'.format(version),
-                'git push origin master --tag']:
-            subprocess.check_call(cmd, shell=True)
-        sys.exit(0)
-
-    long_desc = ('Simple command line tool to change directory'
-                 ' for python modules. You can now easily read'
-                 ' the codes of the modules.')
-    setup(
-        name='pycd',
-        version=version,
-        package_dir={'': 'src'},
-        description='Tool to change directory for python modules.',
-        long_description=long_desc,
-        author='Kentaro Wada',
-        author_email='www.kentaro.wada@gmail.com',
-        url='http://github.com/wkentaro/pycd',
-        install_requires=['clint'],
-        packages=find_packages(),
-        license='MIT',
-        keywords='utility',
-        classifiers=[
-            'Development Status :: 5 - Production/Stable',
-            'Intended Audience :: Developers',
-            'License :: OSI Approved :: MIT License',
-            'Operating System :: POSIX',
-            'Topic :: Internet :: WWW/HTTP',
-            ],
-        entry_points={'console_scripts': ['pypkg=pycd.cli:main']},
-        scripts=['pycd.sh'],
-        data_files=get_data_files(),
-        )
-
-
-if __name__ == '__main__':
-    main()
+long_desc = ('Simple command line tool to change directory'
+             ' for python modules. You can now easily read'
+             ' the codes of the modules.')
+setup(
+    name='pycd',
+    version=get_version(),
+    package_dir={'': 'src'},
+    description='Tool to change directory for python modules.',
+    long_description=long_desc,
+    author='Kentaro Wada',
+    author_email='www.kentaro.wada@gmail.com',
+    url='http://github.com/wkentaro/pycd',
+    install_requires=['clint'],
+    packages=find_packages(),
+    license='MIT',
+    keywords='utility',
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: POSIX',
+        'Topic :: Internet :: WWW/HTTP',
+        ],
+    entry_points={'console_scripts': ['pypkg=pycd.cli:main']},
+    scripts=['pycd.sh'],
+    data_files=get_data_files(),
+    )
