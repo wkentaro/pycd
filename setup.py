@@ -68,6 +68,7 @@ def main():
             ],
         entry_points={'console_scripts': ['pypkg = pycd.cli:main']},
         scripts=['pycd.sh'],
+        data_files=get_data_files(),
     )
 
 
