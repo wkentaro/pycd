@@ -40,9 +40,15 @@ def get_data_files():
 
 
 def main():
+    version = get_version()
+
     # publish helper
     if sys.argv[-1] == 'publish':
-        subprocess.check_call('python setup.py sdist upload', shell=True)
+        for cmd in [
+                'python setup.py sdist upload',
+                'git tag {}'.format(version),
+                'git push origin master --tag']:
+            subprocess.check_call(cmd, shell=True)
         sys.exit(0)
 
     long_desc = ('Simple command line tool to change directory'
@@ -50,7 +56,7 @@ def main():
                  ' the codes of the modules.')
     setup(
         name='pycd',
-        version=get_version(),
+        version=version,
         description='Tool to change directory for python modules.',
         long_description=long_desc,
         author='Kentaro Wada',
