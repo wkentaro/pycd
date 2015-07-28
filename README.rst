@@ -20,7 +20,7 @@ install pycd by pip::
 
    $ pip install pycd
 
-add following line to user ``.zshrc``::
+add following line to your ``.zshrc``::
 
     antigen bundle wkentaro/pycd
 
@@ -31,13 +31,9 @@ install pycd by pip::
 
    $ pip install pycd
 
-and download pycd from github::
+add following line to your shell::
 
-    $ git clone https://github.com/wkentaro/pycd.git ~/.pycd
-
-add following to your `.bashrc` or `.zshrc`::
-
-    source ~/.pycd/pycd.sh
+    source `which pycd.sh`
 
 
 Usage
