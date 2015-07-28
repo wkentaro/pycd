@@ -47,8 +47,6 @@ def main():
     long_desc = ('Simple command line tool to change directory'
                  ' for python modules. You can now easily read'
                  ' the codes of the modules.')
-    install_requires = ['clint==0.4.1']
-
     setup(
         name='pycd',
         version=get_version(),
@@ -57,7 +55,7 @@ def main():
         author='Kentaro Wada',
         author_email='www.kentaro.wada@gmail.com',
         url='http://github.com/wkentaro/pycd',
-        install_requires=install_requires,
+        install_requires=['clint>=0.4.1'],
         packages=find_packages(),
         license='MIT',
         keywords='utility',
@@ -67,12 +65,9 @@ def main():
             'License :: OSI Approved :: MIT License',
             'Operating System :: POSIX',
             'Topic :: Internet :: WWW/HTTP',
-        ],
-        entry_points={
-            'console_scripts': [
-                'pypkg = pycd.cli:main',
             ],
-        }
+        entry_points={'console_scripts': ['pypkg = pycd.cli:main']},
+        scripts=['pycd.sh'],
     )
 
 
