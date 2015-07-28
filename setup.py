@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 
 def get_version():
     try:
-        file_, path, desc = imp.find_module('__version__', ['pycd'])
+        file_, path, desc = imp.find_module('__version__', ['src/pycd'])
         version = imp.load_module('__version__', file_, path, desc).version
     finally:
         if file_ is not None:
@@ -64,7 +64,7 @@ def main():
         author='Kentaro Wada',
         author_email='www.kentaro.wada@gmail.com',
         url='http://github.com/wkentaro/pycd',
-        install_requires=['clint>=0.4.1'],
+        install_requires=['clint'],
         packages=find_packages(),
         license='MIT',
         keywords='utility',
@@ -75,10 +75,10 @@ def main():
             'Operating System :: POSIX',
             'Topic :: Internet :: WWW/HTTP',
             ],
-        entry_points={'console_scripts': ['pypkg = pycd.cli:main']},
+        entry_points={'console_scripts': ['pypkg=pycd.cli:main']},
         scripts=['pycd.sh'],
         data_files=get_data_files(),
-    )
+        )
 
 
 if __name__ == '__main__':
