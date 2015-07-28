@@ -5,6 +5,7 @@ from __future__ import print_function
 import sys
 import imp
 import subprocess
+import platform
 from setuptools import setup, find_packages
 
 
