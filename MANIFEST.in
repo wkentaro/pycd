@@ -1,0 +1,1 @@
+include completion/pycd-completion.bash completion/_pycd
