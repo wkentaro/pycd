@@ -45,7 +45,7 @@ def get_data_files():
 if sys.argv[-1] == 'publish':
     for cmd in [
             'python setup.py sdist upload',
-            'git tag {}'.format(get_version())
+            'git tag {}'.format(get_version()),
             'git push origin master --tag']:
         subprocess.check_call(cmd, shell=True)
     sys.exit(0)
