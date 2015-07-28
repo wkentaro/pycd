@@ -5,16 +5,17 @@ from __future__ import print_function
 import sys
 import imp
 import subprocess
+import platform
 from setuptools import setup, find_packages
 
 
 def get_version():
     try:
-        f, path, desc = imp.find_module('__version__', ['pycd'])
-        version = imp.load_module('__version__', f, path, desc).version
+        file_, path, desc = imp.find_module('__version__', ['pycd'])
+        version = imp.load_module('__version__', file_, path, desc).version
     finally:
-        if f is not None:
-            f.close()
+        if file_ is not None:
+            file_.close()
     return version
 
 
