@@ -1,1 +1,1 @@
-include completion/pycd-completion.bash completion/_pycd completion/_pypkg
+include completion/pycd-completion.bash completion/pypack-completion.bash completion/_pycd completion/_pypack

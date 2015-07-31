@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 from __future__ import print_function
+import os
 import sys
 import imp
 import subprocess
@@ -19,25 +20,40 @@ def get_version():
     return version
 
 
-def get_data_files():
+def get_completion_install_location(shell):
     uname = platform.uname()[0]
-    if uname == 'Linux':
-        prefix = '/'
-    else:  # for Darwin and other platforms
-        prefix = ''
-    bash_comp_loc = prefix + 'etc/bash_completion.d'
-    zsh_comp_loc = 'share/zsh/site-functions'
+    is_root = (os.geteuid() == 0)
 
-    # we expect each completion script to be installed in
-    # wstool-completion.bash:
-    #   - /etc/bash_completion.d (Linux)
-    #   - /usr/local/share/bash_completion.d (Darwin)
-    # _wstool:
-    #   - /usr/local/share/zsh/site-functions (Linux and Darwin)
-    data_files = [
-        (bash_comp_loc, ['completion/pycd-completion.bash']),
-        (zsh_comp_loc, ['completion/_pycd', 'completion/_pypkg']),
-        ]
+    prefix = ''
+    if shell == 'bash':
+        if is_root and uname == 'Linux':
+            prefix = '/'
+        location = os.path.join(prefix, 'etc/bash_completion.d')
+    elif shell == 'zsh':
+        location = os.path.join(prefix, 'share/zsh/site-functions')
+    else:
+        raise ValueError('unsupported shell: {0}'.format(shell))
+
+    return location
+
+
+def get_data_files():
+    location = {
+        'bash': get_completion_install_location(shell='bash'),
+        'zsh': get_completion_install_location(shell='zsh'),
+        }
+    comp_files = {
+        'bash': [
+            'completion/pycd-completion.bash',
+            'completion/pypack-completion.bash',
+            ],
+        'zsh': [
+            'completion/_pycd',
+            'completion/_pypack',
+            ],
+        }
+    data_files = [(location['bash'], comp_files['bash']),
+                  (location['zsh'], comp_files['zsh'])]
     return data_files
 
 
@@ -73,7 +89,7 @@ setup(
         'Operating System :: POSIX',
         'Topic :: Internet :: WWW/HTTP',
         ],
-    entry_points={'console_scripts': ['pypkg=pycd.cli:main']},
+    entry_points={'console_scripts': ['pypack=pycd.cli:main']},
     scripts=['pycd.sh'],
     data_files=get_data_files(),
     )

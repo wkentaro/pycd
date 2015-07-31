@@ -12,10 +12,10 @@ this_dir = os.path.dirname(__file__)
 
 
 def display_info():
-    puts('pypkg: command line tool to handle python packages.\n')
+    puts('pypack: command line tool to handle python packages.\n')
     puts('Usage:')
     with indent():
-        puts('pypkg <command>')
+        puts('pypack <command>')
     puts('Commands:')
     with indent():
         for cmd in cmd_map:
@@ -41,8 +41,8 @@ def main():
 # def cmd_install_pycd(args):
 #     # path = os.path.join(this_dir, 'pycd.sh')
 #     puts('Please add below to your shell config file')
-#     shell_cmd = '''if which pypkg >/dev/null 2>&1; then
-#     source `pypkg find pycd`/pycd.sh
+#     shell_cmd = '''if which pypack >/dev/null 2>&1; then
+#     source `pypack find pycd`/pycd.sh
 # fi'''
 #     with indent(4, quote='>'):
 #         puts(shell_cmd)
@@ -74,7 +74,7 @@ def cmd_find(args):
     module_paths = get_module_paths()
     if module not in module_paths:
         if not no_warning:
-            print("{0} doesn't exist. Use `pypkg list`.".format(
+            print("{0} doesn't exist. Use `pypack list`.".format(
                 colored.yellow(module)
             ))
         sys.exit(1)

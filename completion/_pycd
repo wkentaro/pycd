@@ -4,7 +4,7 @@ _pycd () {
   local opts
   local -a reply
   if [[ ${CURRENT} == 2 ]]; then
-    opts=$(pypkg list)
+    opts=$(pypack list)
     reply=(${=opts})
   fi
   _describe -t pycd_completion 'pycd_completion' reply

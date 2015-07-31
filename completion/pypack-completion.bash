@@ -6,21 +6,14 @@ if [[ -n ${ZSH_VERSION-} ]]; then
     autoload -U +X bashcompinit && bashcompinit
 fi
 
-_pycd()
-{
+_pypack () {
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts=""
+    opts="find list install_pycd help"
 
-    if [[ ${opts} = "" ]] ; then
-        opts=$(pypack list)
-    fi
-
-    if [[ ${cur} = * ]] ; then
-        COMPREPLY=( $(compgen -W "${opts}" ${cur}) )
-        return 0
-    fi
+    COMPREPLY=( $(compgen -W "${opts}" ${cur}) )
+    return 0
 }
-complete -F _pycd pycd
+complete -F _pypack pypack

@@ -48,9 +48,9 @@ Usage
    # read the code!
 
    # handling python package utils
-   $ pypkg find numpy
+   $ pypack find numpy
    /usr/local/lib/python2.7/dist-packages/numpy
-   $ pypkg list
+   $ pypack list
    numpy
    sklearn
    scipy

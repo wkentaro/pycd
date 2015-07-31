@@ -1,6 +1,6 @@
-#compdef pypkg
+#compdef pypack
 
-_pypkg () {
+_pypack () {
   local -a reply
   if [[ ${CURRENT} = 2 ]]; then
     reply=(
@@ -11,10 +11,10 @@ _pypkg () {
   else
     case ${=${(s: :)words}[2]} in
     find)
-      opts=`pypkg list`
+      opts=`pypack list`
       reply=(${=opts})
     ;;
     esac
   fi
-  _describe -t pypkg_completion 'pypkg_completion' reply
+  _describe -t pypack_completion 'pypack_completion' reply
 }
