@@ -1,6 +1,3 @@
-#!/bin/sh
-#
-
 # ZSH support
 if [[ -n ${ZSH_VERSION-} ]]; then
     autoload -U +X bashcompinit && bashcompinit
