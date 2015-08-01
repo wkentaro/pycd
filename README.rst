@@ -24,18 +24,17 @@ homebrew tap is available `wkentaro/homebrew-pycd <https://github.com/wkentaro/h
 
 Usage
 =====
-.. code-block:: sh
+use ``pycd`` to change directory for python packages::
 
-   $ pycd
-   Usage: pycd <module_name>
    $ pycd numpy
    $ pwd
    /usr/local/lib/python2.7/dist-packages/numpy
-   # read the code!
 
-   # handling python package utils
+use ``pypack`` to get information about python packages::
+
    $ pypack find numpy
    /usr/local/lib/python2.7/dist-packages/numpy
+
    $ pypack list
    numpy
    sklearn
