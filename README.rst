@@ -8,25 +8,6 @@ pycd
 Installation
 ============
 
-
-for homebrew users
-------------------
-homebrew tap is available `wkentaro/homebrew-pycd <https://github.com/wkentaro/homebrew-pycd>`_.
-
-
-for antigen users
------------------
-install pycd by pip::
-
-   $ pip install pycd
-
-add following line to your ``.zshrc``::
-
-    antigen bundle wkentaro/pycd
-
-
-for others
-----------
 install pycd by pip::
 
    $ pip install pycd
@@ -34,6 +15,11 @@ install pycd by pip::
 add following line to your shell::
 
     source `which pycd.sh`
+
+
+for homebrew users
+------------------
+homebrew tap is available `wkentaro/homebrew-pycd <https://github.com/wkentaro/homebrew-pycd>`_.
 
 
 Usage
