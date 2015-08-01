@@ -4,9 +4,9 @@ _pypack () {
   local -a reply
   if [[ ${CURRENT} = 2 ]]; then
     reply=(
-      'find:find package path' \
-      'list:get package list' \
-      'help:show usage'
+      find:'find package path'
+      list:'get package list'
+      help:'show usage'
       )
   else
     case ${=${(s: :)words}[2]} in

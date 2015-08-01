@@ -7,34 +7,41 @@ from clint.textui import colored, puts, indent
 from clint.eng import join as eng_join
 from clint import Args
 
-from .module import get_module_paths
+from .package import get_package_paths
 this_dir = os.path.dirname(__file__)
 
 
-def display_info():
-    puts('pypack: command line tool to handle python packages.\n')
-    puts('Usage:')
-    with indent():
-        puts('pypack <command>')
-    puts('Commands:')
-    with indent():
+def cmd_help(args):
+    is_data_only = False
+    if args.contains(('--data-only')):
+        is_data_only = True
+
+    if is_data_only:
         for cmd in cmd_map:
             puts('{0} - {1}'.format(cmd, cmd_info[cmd]))
+    else:
+        puts('pypack: command line tool to handle python packages.\n')
+        puts('Usage:')
+        with indent():
+            puts('pypack <command>')
+        puts('Commands:')
+        with indent():
+            for cmd in cmd_map:
+                puts('{0} - {1}'.format(cmd, cmd_info[cmd]))
 
 
 def main():
     args = Args()
-    if args.get(0) in cmd_map:
-        arg = args.get(0)
+    arg = args.get(0)
+    if arg in cmd_map:
         args.remove(arg)
-
         try:
             cmd_map.get(arg).__call__(args)
         except KeyboardInterrupt:
             pass
         sys.exit()
     else:
-        display_info()
+        cmd_help(args)
 
 
 # maybe not needed
@@ -60,42 +67,44 @@ def main():
 
 
 def cmd_find(args):
-    module = args.get(0)
+    pkg = args.get(0)
 
     no_warning = False
     if args.contains(('--no-warning')):
         no_warning = True
 
-    if not module:
+    if not pkg:
         if not no_warning:
-            print("Please specify a module to find.")
+            puts("Please specify a package to find.")
         sys.exit()
 
-    module_paths = get_module_paths()
-    if module not in module_paths:
+    pkg_paths = get_package_paths()
+    if pkg not in pkg_paths:
         if not no_warning:
-            print("{0} doesn't exist. Use `pypack list`.".format(
-                colored.yellow(module)
+            puts("{0} doesn't exist. Use `pypack list`.".format(
+                colored.yellow(pkg)
             ))
         sys.exit(1)
 
-    print(module_paths[module])
+    puts(pkg_paths[pkg])
 
 
 def cmd_list(args):
-    module_paths = get_module_paths()
-    for module in module_paths:
-        print(module)
+    pkg_paths = get_package_paths()
+    for pkg in pkg_paths:
+        puts(pkg)
 
 
 cmd_map = dict(
     find=cmd_find,
     list=cmd_list,
+    help=cmd_help,
     )
 
 cmd_info = dict(
     find='find package path',
     list='get package list',
+    help='show help',
     )
 
 
