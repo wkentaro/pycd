@@ -46,4 +46,4 @@ License
 =======
 | Copyright (C) 2015 Kentaro Wada
 | Released under the MIT license
-| https://github.com/wkentaro/pycd/blob/master/LICENSE
+| http://opensource.org/licenses/mit-license.php
