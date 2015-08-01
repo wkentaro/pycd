@@ -20,24 +20,22 @@ def get_version():
     return version
 
 
-def get_completion_install_location(shell):
-    uname = platform.uname()[0]
-    is_root = (os.geteuid() == 0)
-
-    prefix = ''
-    if shell == 'bash':
-        if is_root and uname == 'Linux':
-            prefix = '/'
-        location = os.path.join(prefix, 'etc/bash_completion.d')
-    elif shell == 'zsh':
-        location = os.path.join(prefix, 'share/zsh/site-functions')
-    else:
-        raise ValueError('unsupported shell: {0}'.format(shell))
-
-    return location
-
-
 def get_data_files():
+
+    def get_completion_install_location(shell):
+        uname = platform.uname()[0]
+        is_root = (os.geteuid() == 0)
+        prefix = ''
+        if shell == 'bash':
+            if is_root and uname == 'Linux':
+                prefix = '/'
+            location = os.path.join(prefix, 'etc/bash_completion.d')
+        elif shell == 'zsh':
+            location = os.path.join(prefix, 'share/zsh/site-functions')
+        else:
+            raise ValueError('unsupported shell: {0}'.format(shell))
+        return location
+
     location = {
         'bash': get_completion_install_location(shell='bash'),
         'zsh': get_completion_install_location(shell='zsh'),
@@ -48,6 +46,7 @@ def get_data_files():
             'completion/pypack-completion.bash',
             ],
         'zsh': [
+            'completion/pycd-completion.bash',
             'completion/_pycd',
             'completion/_pypack',
             ],
