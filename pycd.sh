@@ -11,7 +11,7 @@ function pycd ()
     return 1
   }
   if [ "$1" = "" ]; then
-    echo "Usage: pycd <module_name>"
+    echo "Usage: pycd <package_name>"
   else
     pkg_path=$(pypack find $1 --no-warning)
     if [ "$pkg_path" = "" ]; then
