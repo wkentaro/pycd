@@ -31,6 +31,13 @@ def cmd_help(args):
 
 
 def main():
+    env_path = os.getenv('VIRTUAL_ENV')
+    if env_path:
+        py_version = sys.version_info.major + '.' + sys.version_info.minor
+        env_lib = os.path.join(env_path,
+                               'lib/python{}/site-packages'.format(py_version))
+        sys.path.insert(0, env_lib)
+
     args = Args()
     arg = args.get(0)
     if arg in cmd_map:
