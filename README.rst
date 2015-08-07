@@ -17,11 +17,6 @@ add following line to your shell::
     source `which pycd.sh`
 
 
-for homebrew users
-------------------
-homebrew tap is available `wkentaro/homebrew-pycd <https://github.com/wkentaro/homebrew-pycd>`_.
-
-
 Usage
 =====
 use ``pycd`` to change directory for python packages::
