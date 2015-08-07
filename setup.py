@@ -26,9 +26,13 @@ def get_data_files():
         uname = platform.uname()[0]
         is_root = (os.geteuid() == 0)
         prefix = ''
-        if shell == 'bash':
-            if is_root and uname == 'Linux':
+        if is_root:
+            # this is system install
+            if uname == 'Linux':
                 prefix = '/'
+            elif uname == 'Darwin':
+                prefix = '/usr'
+        if shell == 'bash':
             location = os.path.join(prefix, 'etc/bash_completion.d')
         elif shell == 'zsh':
             location = os.path.join(prefix, 'share/zsh/site-functions')
@@ -36,23 +40,15 @@ def get_data_files():
             raise ValueError('unsupported shell: {0}'.format(shell))
         return location
 
-    location = {
-        'bash': get_completion_install_location(shell='bash'),
-        'zsh': get_completion_install_location(shell='zsh'),
-        }
-    comp_files = {
-        'bash': [
-            'completion/pycd-completion.bash',
-            'completion/pypack-completion.bash',
-            ],
-        'zsh': [
-            'completion/pycd-completion.bash',
-            'completion/_pycd',
-            'completion/_pypack',
-            ],
-        }
-    data_files = [(location['bash'], comp_files['bash']),
-                  (location['zsh'], comp_files['zsh'])]
+    loc = {'bash': get_completion_install_location(shell='bash'),
+           'zsh': get_completion_install_location(shell='zsh')}
+    files = dict(bash=['completion/pycd-completion.bash',
+                       'completion/pypack-completion.bash'],
+                 zsh=['completion/pycd-completion.bash',
+                      'completion/_pycd', 'completion/_pypack'])
+    data_files = []
+    data_files.append((loc['bash'], files['bash']))
+    data_files.append((loc['zsh'], files['zsh']))
     return data_files
 
 
