@@ -37,7 +37,7 @@ def main():
                                     sys.version_info.minor)
         env_lib = os.path.join(env_path,
                                'lib/python{}/site-packages'.format(py_version))
-        sys.path.insert(0, env_lib)
+        sys.path = ['', env_lib]
 
     args = Args()
     arg = args.get(0)
