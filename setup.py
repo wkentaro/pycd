@@ -9,15 +9,20 @@ import subprocess
 import platform
 from setuptools import setup, find_packages
 
+this_dir = os.path.dirname(os.path.abspath(__file__))
+
+
+def get_install_requires():
+    req_file = os.path.join(this_dir, 'requirements.txt')
+    with open(req_file) as f:
+        required = f.readlines()
+    return required
+
 
 def get_version():
-    try:
-        file_, path, desc = imp.find_module('__version__', ['src/pycd'])
-        version = imp.load_module('__version__', file_, path, desc).version
-    finally:
-        if file_ is not None:
-            file_.close()
-    return version
+    sys.path.insert(0, os.path.join(this_dir, 'src'))
+    from pycd.version import __version__
+    return __version__
 
 
 def get_data_files():
@@ -61,20 +66,17 @@ if sys.argv[-1] == 'publish':
         subprocess.check_call(cmd, shell=True)
     sys.exit(0)
 
-long_desc = ('Simple command line tool to change directory'
-             ' for python modules. You can now easily read'
-             ' the codes of the modules.')
 setup(
     name='pycd',
     version=get_version(),
     package_dir={'': 'src'},
     packages=find_packages('src'),
     description='Tool to change directory for python modules.',
-    long_description=long_desc,
+    long_description=open('README.rst').read(),
     author='Kentaro Wada',
     author_email='www.kentaro.wada@gmail.com',
     url='http://github.com/wkentaro/pycd',
-    install_requires=['clint'],
+    install_requires=get_install_requires(),
     license='MIT',
     keywords='utility',
     classifiers=[
