@@ -1,1 +1,2 @@
+include requirements.txt README.rst
 recursive-include completion *
