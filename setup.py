@@ -9,8 +9,6 @@ import subprocess
 import platform
 from setuptools import setup, find_packages
 
-this_dir = os.path.dirname(os.path.abspath(__file__))
-
 
 def get_data_files():
 
