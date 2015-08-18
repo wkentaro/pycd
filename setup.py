@@ -84,4 +84,5 @@ setup(
     entry_points={'console_scripts': ['pypack=pycd.cli:main']},
     scripts=['pycd.sh'],
     data_files=get_data_files(),
-    )
+    test_suite='nose.collector',
+)

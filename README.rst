@@ -37,6 +37,13 @@ use ``pypack`` to get information about python packages::
    ...
 
 
+Test
+====
+.. code-block:: sh
+
+    $ nosetests -v pycd
+
+
 License
 =======
 | Copyright (C) 2015 Kentaro Wada
