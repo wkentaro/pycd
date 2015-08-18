@@ -33,9 +33,13 @@ def get_data_files():
         prefix = ''
         if is_root:
             # this is system install
-            if uname == 'Linux':
+            if uname == 'Linux' and shell == 'bash':
                 prefix = '/'
-            elif uname == 'Darwin':
+            elif uname == 'Linux' and shell == 'zsh':
+                prefix = ''
+            elif uname == 'Darwin' and shell == 'bash':
+                prefix = '/'
+            elif uname == 'Darwin' and shell == 'zsh':
                 prefix = '/usr'
         if shell == 'bash':
             location = os.path.join(prefix, 'etc/bash_completion.d')
