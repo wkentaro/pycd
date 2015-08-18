@@ -12,11 +12,6 @@ from setuptools import setup, find_packages
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
 
-def get_version():
-    from pycd.__version__ import __version__
-    return __version__
-
-
 def get_data_files():
 
     def get_completion_install_location(shell):
@@ -64,7 +59,7 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name='pycd',
-    version=get_version(),
+    version=__import__('pycd').__version__,
     packages=find_packages(),
     description='Tool to change directory for python modules.',
     long_description=open('README.rst').read(),
