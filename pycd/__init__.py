@@ -6,7 +6,7 @@ import sys
 
 from .cli import *
 from .package import *
-from .version import __version__
+from .__version__ import __version__
 
 
 # get current PYTHONPATH

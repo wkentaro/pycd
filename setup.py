@@ -12,16 +12,8 @@ from setuptools import setup, find_packages
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
 
-def get_install_requires():
-    req_file = os.path.join(this_dir, 'requirements.txt')
-    with open(req_file) as f:
-        required = f.readlines()
-    return required
-
-
 def get_version():
-    sys.path.insert(0, os.path.join(this_dir, 'src'))
-    from pycd.version import __version__
+    from pycd.__version__ import __version__
     return __version__
 
 
@@ -73,14 +65,13 @@ if sys.argv[-1] == 'publish':
 setup(
     name='pycd',
     version=get_version(),
-    package_dir={'': 'src'},
-    packages=find_packages('src'),
+    packages=find_packages(),
     description='Tool to change directory for python modules.',
     long_description=open('README.rst').read(),
     author='Kentaro Wada',
     author_email='www.kentaro.wada@gmail.com',
     url='http://github.com/wkentaro/pycd',
-    install_requires=get_install_requires(),
+    install_requires=open('requirements.txt').readlines(),
     license='MIT',
     keywords='utility',
     classifiers=[
