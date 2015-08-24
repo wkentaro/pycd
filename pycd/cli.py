@@ -2,13 +2,14 @@
 #
 import os
 import sys
+# get current PYTHONPATH
+sys.path = os.getenv('PYTHONPATH').split(':').extend(sys.path)
 
 from clint.textui import colored, puts, indent
 from clint.eng import join as eng_join
 from clint import Args
 
 from .package import get_package_paths
-this_dir = os.path.dirname(__file__)
 
 
 def cmd_help(args):
@@ -53,6 +54,7 @@ def main():
 
 
 # maybe not needed
+# this_dir = os.path.dirname(__file__)
 # def cmd_install_pycd(args):
 #     # path = os.path.join(this_dir, 'pycd.sh')
 #     puts('Please add below to your shell config file')

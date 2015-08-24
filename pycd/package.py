@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 #
 import os
+import sys
+# get current PYTHONPATH
+sys.path = os.getenv('PYTHONPATH').split(':').extend(sys.path)
+
 import imp
 import pkgutil
 
