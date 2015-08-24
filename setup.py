@@ -21,7 +21,7 @@ def get_data_files():
             if uname == 'Linux' and shell == 'bash':
                 prefix = '/'
             elif uname == 'Linux' and shell == 'zsh':
-                prefix = ''
+                prefix = '/usr/local'
             elif uname == 'Darwin' and shell == 'bash':
                 prefix = '/'
             elif uname == 'Darwin' and shell == 'zsh':
