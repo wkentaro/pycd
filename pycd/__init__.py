@@ -4,10 +4,4 @@
 import os
 import sys
 
-from .cli import *
-from .package import *
 from .__version__ import __version__
-
-
-# get current PYTHONPATH
-sys.path = os.getenv('PYTHONPATH').split(':') + sys.path
