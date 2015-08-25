@@ -19,6 +19,7 @@ add following line to your shell::
 
 Usage
 =====
+
 use ``pycd`` to change directory for python packages::
 
    $ pycd numpy
@@ -37,8 +38,9 @@ use ``pypack`` to get information about python packages::
    ...
 
 
-Test
-====
+Testing
+=======
+
 .. code-block:: sh
 
     $ nosetests -v pycd
