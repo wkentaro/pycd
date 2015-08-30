@@ -3,7 +3,7 @@
 import os
 import sys
 # get current PYTHONPATH
-sys.path = os.getenv('PYTHONPATH').split(':').extend(sys.path)
+sys.path = os.getenv('PYTHONPATH').split(':') + sys.path
 
 from clint.textui import colored, puts, indent
 from clint.eng import join as eng_join
