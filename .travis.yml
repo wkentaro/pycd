@@ -1,0 +1,21 @@
+sudo: false
+
+language: python
+
+python: 2.7
+
+before_install:
+  - pip install -r requirements.txt
+  - pip install nose flake8 hacking coveralls
+
+install:
+  - python setup.py install
+
+before_script:
+  - flake8 pycd
+
+script:
+  - nosetests --with-coverage --cover-package=pycd
+
+after_success:
+  - coveralls
