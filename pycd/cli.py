@@ -3,7 +3,8 @@
 import os
 import sys
 # get current PYTHONPATH
-sys.path = os.getenv('PYTHONPATH').split(':') + sys.path
+if os.getenv('PYTHONPATH') is not None:
+    sys.path = os.getenv('PYTHONPATH').split(':') + sys.path
 
 from clint import Args
 from clint.textui import colored
