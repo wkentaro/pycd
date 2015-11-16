@@ -5,11 +5,12 @@ import sys
 # get current PYTHONPATH
 sys.path = os.getenv('PYTHONPATH').split(':') + sys.path
 
-from clint.textui import colored, puts, indent
-from clint.eng import join as eng_join
 from clint import Args
+from clint.textui import colored
+from clint.textui import indent
+from clint.textui import puts
 
-from .package import get_package_paths
+from pycd.package import get_package_paths
 
 
 def cmd_help(args):
