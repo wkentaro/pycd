@@ -1,7 +1,12 @@
 ========
 ``pycd``
 ========
+
 .. image:: https://img.shields.io/pypi/v/pycd.svg
+.. image:: https://travis-ci.org/wkentaro/pycd.svg
+.. image:: https://coveralls.io/repos/wkentaro/pycd/badge.svg?branch=master&service=github
+  :target: https://coveralls.io/github/wkentaro/pycd?branch=master
+
 
 | Simple command line tool to change directory for Python packages.
 | You can now easily read the codes of the modules.
