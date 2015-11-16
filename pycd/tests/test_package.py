@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import os
-import sys
 
-from nose.tools import assert_true, assert_equal
+from nose.tools import assert_equal
+from nose.tools import assert_true
 
 from pycd.package import get_package_paths
 
