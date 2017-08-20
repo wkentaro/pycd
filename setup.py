@@ -60,7 +60,7 @@ setup(
     version=__import__('pycd').__version__,
     packages=find_packages(),
     description='Tool to change directory for python modules.',
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
     author='Kentaro Wada',
     author_email='www.kentaro.wada@gmail.com',
     url='http://github.com/wkentaro/pycd',
