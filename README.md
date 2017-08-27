@@ -1,6 +1,7 @@
 # pycd
 
-[![image](https://img.shields.io/pypi/v/pycd.svg)](https://pypi.python.org/pypi/pycd)
+
+[![PyPI Version](https://img.shields.io/pypi/v/pycd.svg)](https://pypi.python.org/pypi/pycd)
 [![image](https://travis-ci.org/wkentaro/pycd.svg)](https://travis-ci.org/wkentaro/pycd)
 [![image](https://coveralls.io/repos/wkentaro/pycd/badge.svg?branch=master&service=github)](https://coveralls.io/github/wkentaro/pycd?branch=master)
 
