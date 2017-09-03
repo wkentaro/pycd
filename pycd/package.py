@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 import os
-import sys
-if os.getenv('PYTHONPATH') is not None:
-    sys.path = os.getenv('PYTHONPATH').split(':') + sys.path
 
 import imp
 import pkgutil

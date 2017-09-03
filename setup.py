@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
+
 from __future__ import print_function
+
 import os
-import sys
-import imp
-import subprocess
 import platform
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
+import subprocess
+import sys
 
 
 def get_data_files():
@@ -46,18 +46,20 @@ def get_data_files():
     return data_files
 
 
+__version__ = '0.3.29'
+
+
 # publish helper
 if sys.argv[-1] == 'publish':
-    for cmd in [
-            'python setup.py sdist upload',
-            'git tag {}'.format(__import__('pycd').__version__),
-            'git push origin master --tag']:
+    for cmd in ['python setup.py sdist upload',
+                'git tag %s' % __version__,
+                'git push origin master --tag']:
         subprocess.check_call(cmd, shell=True)
     sys.exit(0)
 
 setup(
     name='pycd',
-    version=__import__('pycd').__version__,
+    version=__version__,
     packages=find_packages(),
     description='Tool to change directory for python modules.',
     long_description=open('README.md').read(),

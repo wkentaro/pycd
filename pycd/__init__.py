@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# flake8: noqa
 
-
-__version__ = '0.3.29'
+from . import cli
+from . import package

@@ -13,10 +13,8 @@ function pycd ()
   if [ "$1" = "" ]; then
     echo "Usage: pycd <package_name>"
   else
-    pkg_path=$(pypack find $1 --no-warning)
-    if [ "$pkg_path" = "" ]; then
-      echo "$1 not found"
-    else
+    pkg_path=$(pypack find $1)
+    if [ "$pkg_path" != "" ]; then
       cd $pkg_path
     fi
   fi
