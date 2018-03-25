@@ -11,11 +11,11 @@ install:
   - python setup.py install
 
 before_script:
-  - pip install -q nose hacking coveralls
+  - pip install -q nose hacking
 
 script:
   - flake8 pycd
-  - nosetests --with-coverage --cover-package=pycd
+  - nosetests
 
 after_success:
   - coveralls
