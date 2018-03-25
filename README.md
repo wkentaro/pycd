@@ -56,6 +56,4 @@ nosetests -v pycd
 
 ## License
 
-Copyright (C) 2015-2017 Kentaro Wada  
-Released under the MIT license  
-<http://opensource.org/licenses/mit-license.php>
+See [LICENSE](LICENSE).
