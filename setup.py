@@ -46,7 +46,7 @@ def get_data_files():
     return data_files
 
 
-__version__ = '0.3.29'
+__version__ = '0.3.30'
 
 
 # publish helper
@@ -63,6 +63,7 @@ setup(
     packages=find_packages(),
     description='Tool to change directory for python modules.',
     long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
     author='Kentaro Wada',
     author_email='www.kentaro.wada@gmail.com',
     url='http://github.com/wkentaro/pycd',
