@@ -12,6 +12,8 @@ def get_package_paths():
             file_, pkg_path = imp.find_module(pkg_name)[:2]
         except ImportError:
             continue
+        if pkg_path is None:
+            continue
         pkg_dirname = os.path.split(pkg_path)[0]
         if file_ is None:
             pkg_paths[pkg_name] = os.path.abspath(pkg_path)
