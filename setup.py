@@ -50,10 +50,10 @@ __version__ = '0.3.30'
 
 
 # publish helper
-if sys.argv[-1] == 'publish':
-    for cmd in ['python setup.py sdist upload',
-                'git tag %s' % __version__,
-                'git push origin master --tag']:
+if sys.argv[-1] == 'release':
+    for cmd in ['git tag %s' % __version__,
+                'git push origin master --tag',
+                'twine upload dist/pycd-%s.tar.gz' % __version__]:
         subprocess.check_call(cmd, shell=True)
     sys.exit(0)
 
